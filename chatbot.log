@@ -1,0 +1,1251 @@
+2025-07-11 14:41:08,363 - __main__ - INFO - Attempting to connect to database: localhost:3306/althinect_device_logs
+2025-07-11 14:41:08,572 - __main__ - INFO - Database connection successful
+2025-07-11 14:41:08,573 - __main__ - INFO - Database connected successfully via UI
+2025-07-11 14:41:10,622 - __main__ - INFO - User query received: hey
+2025-07-11 14:41:10,623 - __main__ - INFO - Conversation turn completed
+2025-07-11 14:41:22,052 - __main__ - INFO - User query received: Plot the production of each machines (all 3 machines) with bar chart in March from 5th to 8th
+2025-07-11 14:41:22,057 - __main__ - INFO - Processing user query: Plot the production of each machines (all 3 machines) with bar chart in March from 5th to 8th
+2025-07-11 14:41:22,057 - __main__ - INFO - Analyzing query for metric and visualization: Plot the production of each machines (all 3 machines) with bar chart in March from 5th to 8th
+2025-07-11 14:41:22,058 - __main__ - INFO - Detected metric: production, Visualization needed: True, Chart type: multi_machine_bar, Multi-machine: True
+2025-07-11 14:41:23,445 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-11 14:41:23,463 - __main__ - INFO - Generated SQL query: SELECT 
+    DATE(daily_consumption.date) AS date,
+    device_iddevice AS machine_name,
+    SUM(daily_production_output.production_output) AS total_production
+FROM 
+    daily_consumption
+JOIN 
+    daily_production_output ON daily_consumption.date = daily_production_output.date
+WHERE 
+    daily_consumption.date BETWEEN '2025-03-05' AND '2025-03-08'
+GROUP BY 
+    DATE(daily_consumption.date), device_iddevice
+ORDER BY 
+    date, machine_name;
+2025-07-11 14:41:23,468 - __main__ - ERROR - SQL execution error: (mysql.connector.errors.IntegrityError) 1052 (23000): Column 'device_iddevice' in field list is ambiguous
+[SQL: SELECT 
+    DATE(daily_consumption.date) AS date,
+    device_iddevice AS machine_name,
+    SUM(daily_production_output.production_output) AS total_production
+FROM 
+    daily_consumption
+JOIN 
+    daily_production_output ON daily_consumption.date = daily_production_output.date
+WHERE 
+    daily_consumption.date BETWEEN '2025-03-05' AND '2025-03-08'
+GROUP BY 
+    DATE(daily_consumption.date), device_iddevice
+ORDER BY 
+    date, machine_name;]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+
+**Generated SQL Query:**
+```sql
+SELECT 
+    DATE(daily_consumption.date) AS date,
+    device_iddevice AS machine_name,
+    SUM(daily_production_output.production_output) AS total_production
+FROM 
+    daily_consumption
+JOIN 
+    daily_production_output ON daily_consumption.date = daily_production_output.date
+WHERE 
+    daily_consumption.date BETWEEN '2025-03-05' AND '2025-03-08'
+GROUP BY 
+    DATE(daily_consumption.date), device_iddevice
+ORDER BY 
+    date, machine_name;
+```
+
+**Possible issues:**
+1. Column names might be incorrect
+2. Table structure might be different
+3. Date format issues
+4. Data type mismatches
+2025-07-11 14:41:23,469 - __main__ - INFO - Conversation turn completed
+2025-07-11 14:41:30,439 - __main__ - INFO - User query received: Plot the production of each machines (all 3 machines) with bar chart in March from 5th to 8th
+2025-07-11 14:41:30,442 - __main__ - INFO - Processing user query: Plot the production of each machines (all 3 machines) with bar chart in March from 5th to 8th
+2025-07-11 14:41:30,442 - __main__ - INFO - Analyzing query for metric and visualization: Plot the production of each machines (all 3 machines) with bar chart in March from 5th to 8th
+2025-07-11 14:41:30,443 - __main__ - INFO - Detected metric: production, Visualization needed: True, Chart type: multi_machine_bar, Multi-machine: True
+2025-07-11 14:41:33,007 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-11 14:41:33,011 - __main__ - INFO - Generated SQL query: SELECT 
+    DATE(daily_consumption.date) AS date,
+    device_iddevice AS machine_name,
+    SUM(daily_production_output.production_output) AS total_production
+FROM 
+    daily_consumption
+JOIN 
+    daily_production_output ON daily_consumption.date = daily_production_output.date
+WHERE 
+    daily_consumption.date BETWEEN '2025-03-05' AND '2025-03-08'
+GROUP BY 
+    DATE(daily_consumption.date), device_iddevice
+ORDER BY 
+    date, machine_name;
+2025-07-11 14:41:33,013 - __main__ - ERROR - SQL execution error: (mysql.connector.errors.IntegrityError) 1052 (23000): Column 'device_iddevice' in field list is ambiguous
+[SQL: SELECT 
+    DATE(daily_consumption.date) AS date,
+    device_iddevice AS machine_name,
+    SUM(daily_production_output.production_output) AS total_production
+FROM 
+    daily_consumption
+JOIN 
+    daily_production_output ON daily_consumption.date = daily_production_output.date
+WHERE 
+    daily_consumption.date BETWEEN '2025-03-05' AND '2025-03-08'
+GROUP BY 
+    DATE(daily_consumption.date), device_iddevice
+ORDER BY 
+    date, machine_name;]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+
+**Generated SQL Query:**
+```sql
+SELECT 
+    DATE(daily_consumption.date) AS date,
+    device_iddevice AS machine_name,
+    SUM(daily_production_output.production_output) AS total_production
+FROM 
+    daily_consumption
+JOIN 
+    daily_production_output ON daily_consumption.date = daily_production_output.date
+WHERE 
+    daily_consumption.date BETWEEN '2025-03-05' AND '2025-03-08'
+GROUP BY 
+    DATE(daily_consumption.date), device_iddevice
+ORDER BY 
+    date, machine_name;
+```
+
+**Possible issues:**
+1. Column names might be incorrect
+2. Table structure might be different
+3. Date format issues
+4. Data type mismatches
+2025-07-11 14:41:33,014 - __main__ - INFO - Conversation turn completed
+2025-07-11 14:41:35,966 - __main__ - INFO - User query received: Plot the production of each machines (all 3 machines) with bar chart in March from 5th to 8th
+2025-07-11 14:41:35,967 - __main__ - INFO - Processing user query: Plot the production of each machines (all 3 machines) with bar chart in March from 5th to 8th
+2025-07-11 14:41:35,967 - __main__ - INFO - Analyzing query for metric and visualization: Plot the production of each machines (all 3 machines) with bar chart in March from 5th to 8th
+2025-07-11 14:41:35,968 - __main__ - INFO - Detected metric: production, Visualization needed: True, Chart type: multi_machine_bar, Multi-machine: True
+2025-07-11 14:41:36,311 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-07-11 14:41:36,312 - groq._base_client - INFO - Retrying request to /openai/v1/chat/completions in 35.000000 seconds
+2025-07-11 14:42:12,941 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-11 14:42:12,946 - __main__ - INFO - Generated SQL query: SELECT 
+    DATE(daily_consumption.date) AS date,
+    device_iddevice AS machine_name,
+    SUM(daily_production_output.production_output) AS total_production
+FROM 
+    daily_consumption
+JOIN 
+    daily_production_output ON daily_consumption.date = daily_production_output.date
+WHERE 
+    daily_consumption.date BETWEEN '2025-03-05' AND '2025-03-08'
+GROUP BY 
+    DATE(daily_consumption.date), device_iddevice
+ORDER BY 
+    date, machine_name;
+2025-07-11 14:42:12,951 - __main__ - ERROR - SQL execution error: (mysql.connector.errors.IntegrityError) 1052 (23000): Column 'device_iddevice' in field list is ambiguous
+[SQL: SELECT 
+    DATE(daily_consumption.date) AS date,
+    device_iddevice AS machine_name,
+    SUM(daily_production_output.production_output) AS total_production
+FROM 
+    daily_consumption
+JOIN 
+    daily_production_output ON daily_consumption.date = daily_production_output.date
+WHERE 
+    daily_consumption.date BETWEEN '2025-03-05' AND '2025-03-08'
+GROUP BY 
+    DATE(daily_consumption.date), device_iddevice
+ORDER BY 
+    date, machine_name;]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+
+**Generated SQL Query:**
+```sql
+SELECT 
+    DATE(daily_consumption.date) AS date,
+    device_iddevice AS machine_name,
+    SUM(daily_production_output.production_output) AS total_production
+FROM 
+    daily_consumption
+JOIN 
+    daily_production_output ON daily_consumption.date = daily_production_output.date
+WHERE 
+    daily_consumption.date BETWEEN '2025-03-05' AND '2025-03-08'
+GROUP BY 
+    DATE(daily_consumption.date), device_iddevice
+ORDER BY 
+    date, machine_name;
+```
+
+**Possible issues:**
+1. Column names might be incorrect
+2. Table structure might be different
+3. Date format issues
+4. Data type mismatches
+2025-07-11 14:42:14,337 - __main__ - INFO - Attempting to connect to database: localhost:3306/althinect_device_logs
+2025-07-11 14:42:14,418 - __main__ - INFO - Database connection successful
+2025-07-11 14:42:14,418 - __main__ - INFO - Database connected successfully via UI
+2025-07-11 14:42:30,557 - __main__ - INFO - Attempting to connect to database: localhost:3306/althinect_device_logs
+2025-07-11 14:42:30,612 - __main__ - INFO - Database connection successful
+2025-07-11 14:42:30,612 - __main__ - INFO - Database connected successfully via UI
+2025-07-11 14:43:00,478 - __main__ - INFO - User query received: Plot the production of each machines (all 3 machines) with bar chart in March from 5th to 8th
+2025-07-11 14:43:00,481 - __main__ - INFO - Processing user query: Plot the production of each machines (all 3 machines) with bar chart in March from 5th to 8th
+2025-07-11 14:43:00,481 - __main__ - INFO - Analyzing query for metric and visualization: Plot the production of each machines (all 3 machines) with bar chart in March from 5th to 8th
+2025-07-11 14:43:00,481 - __main__ - INFO - Detected metric: production, Visualization needed: True, Chart type: multi_machine_bar, Multi-machine: True
+2025-07-11 14:43:02,913 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-11 14:43:02,917 - __main__ - INFO - Generated SQL query: SELECT 
+    DATE(daily_consumption.date) AS date,
+    device_iddevice AS machine_name,
+    SUM(daily_consumption.daily_consumption) AS daily_production
+FROM 
+    daily_consumption
+WHERE 
+    DATE(daily_consumption.date) BETWEEN '2025-03-05' AND '2025-03-08'
+GROUP BY 
+    DATE(daily_consumption.date), device_iddevice
+ORDER BY 
+    date, machine_name;
+2025-07-11 14:43:02,923 - __main__ - INFO - SQL query executed successfully. Response length: 632
+2025-07-11 14:43:02,964 - __main__ - INFO - DataFrame created with shape: (12, 3)
+2025-07-11 14:43:02,964 - __main__ - INFO - Creating visualization: multi_machine_bar for metric: 1
+2025-07-11 14:43:02,964 - __main__ - INFO - DataFrame shape: (12, 3)
+2025-07-11 14:43:02,964 - __main__ - INFO - DataFrame columns: ['date', 'machine_name', 'daily_production']
+2025-07-11 14:43:02,974 - __main__ - INFO - DataFrame sample data:
+         date  machine_name  daily_production
+0  2025-03-05  TJ-Stenter01            1842.0
+1  2025-03-05  TJ-Stenter02             756.0
+2  2025-03-05  TJ-Stenter03            1493.0
+3  2025-03-06  TJ-Stenter01            1796.0
+4  2025-03-06  TJ-Stenter02             589.0
+2025-07-11 14:43:02,979 - __main__ - INFO - Converted column date to datetime
+2025-07-11 14:43:02,979 - __main__ - INFO - Numeric columns: ['daily_production']
+2025-07-11 14:43:02,979 - __main__ - INFO - Categorical columns: ['date', 'machine_name']
+2025-07-11 14:43:02,979 - __main__ - INFO - Detected columns - Date: date, Machine: machine_name, Value: daily_production
+2025-07-11 14:43:03,097 - __main__ - INFO - Visualization created and stored successfully
+2025-07-11 14:43:03,097 - __main__ - ERROR - Error creating visualization: 'int' object has no attribute 'capitalize'
+2025-07-11 14:43:04,653 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-11 14:43:04,658 - __main__ - INFO - Response generated successfully
+2025-07-11 14:43:04,659 - __main__ - INFO - Conversation turn completed
+2025-07-11 14:44:27,212 - __main__ - INFO - User query received: give me may production in pie chart for all machines in 2025-04-22
+2025-07-11 14:44:27,219 - __main__ - INFO - Processing user query: give me may production in pie chart for all machines in 2025-04-22
+2025-07-11 14:44:27,220 - __main__ - INFO - Analyzing query for metric and visualization: give me may production in pie chart for all machines in 2025-04-22
+2025-07-11 14:44:27,220 - __main__ - INFO - Detected metric: production, Visualization needed: True, Chart type: pie, Multi-machine: True
+2025-07-11 14:44:28,313 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-11 14:44:28,315 - __main__ - INFO - Generated SQL query: SELECT 
+    device_iddevice AS machine_name,
+    SUM(production_output) AS total_production
+FROM 
+    daily_production_output
+WHERE 
+    date = '2025-04-22'
+GROUP BY 
+    device_iddevice
+ORDER BY 
+    total_production DESC;
+2025-07-11 14:44:28,322 - __main__ - INFO - SQL query executed successfully. Response length: 83
+2025-07-11 14:44:28,326 - __main__ - INFO - DataFrame created with shape: (3, 2)
+2025-07-11 14:44:28,326 - __main__ - INFO - Creating visualization: pie for metric: 2
+2025-07-11 14:44:28,326 - __main__ - INFO - DataFrame shape: (3, 2)
+2025-07-11 14:44:28,326 - __main__ - INFO - DataFrame columns: ['machine_name', 'total_production']
+2025-07-11 14:44:28,330 - __main__ - INFO - DataFrame sample data:
+   machine_name  total_production
+0  TJ-Stenter01          26931.20
+1  TJ-Stenter02          21033.76
+2  TJ-Stenter03          18694.09
+2025-07-11 14:44:28,331 - __main__ - INFO - Numeric columns: ['total_production']
+2025-07-11 14:44:28,331 - __main__ - INFO - Categorical columns: ['machine_name']
+2025-07-11 14:44:29,646 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-11 14:44:29,651 - __main__ - INFO - Response generated successfully
+2025-07-11 14:44:29,652 - __main__ - INFO - Conversation turn completed
+2025-07-11 20:43:13,684 - __main__ - INFO - Attempting to connect to database: localhost:3306/althinect_device_logs
+2025-07-11 20:43:13,881 - __main__ - INFO - Database connection successful
+2025-07-11 20:43:13,882 - __main__ - INFO - Database connected successfully via UI
+2025-07-11 20:43:17,130 - __main__ - INFO - User query received: hey
+2025-07-11 20:43:17,131 - __main__ - INFO - Conversation turn completed
+2025-07-11 20:43:26,522 - __main__ - INFO - User query received: Plot the production of each machines (all 3 machines) with bar chart in March from 5th to 8th
+2025-07-11 20:43:26,526 - __main__ - INFO - Processing user query: Plot the production of each machines (all 3 machines) with bar chart in March from 5th to 8th
+2025-07-11 20:43:26,527 - __main__ - INFO - Analyzing query for metric and visualization: Plot the production of each machines (all 3 machines) with bar chart in March from 5th to 8th
+2025-07-11 20:43:26,527 - __main__ - INFO - Detected metric: production, Visualization needed: True, Chart type: multi_machine_bar, Multi-machine: True
+2025-07-11 20:43:28,170 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-11 20:43:28,181 - __main__ - INFO - Generated SQL query: SELECT 
+    DATE(daily_consumption.date) AS production_date,
+    daily_consumption.device_iddevice AS machine_name,
+    SUM(daily_production_output.production_output) AS daily_production
+FROM 
+    daily_consumption daily_consumption
+JOIN 
+    daily_production_output daily_production_output ON daily_consumption.date = daily_production_output.date
+WHERE 
+    daily_consumption.date BETWEEN '2025-03-05' AND '2025-03-08'
+GROUP BY 
+    DATE(daily_consumption.date), daily_consumption.device_iddevice
+ORDER BY 
+    production_date, machine_name;
+2025-07-11 20:43:28,187 - __main__ - INFO - SQL query executed successfully. Response length: 687
+2025-07-11 20:43:28,200 - __main__ - INFO - DataFrame created with shape: (12, 3)
+2025-07-11 20:43:28,200 - __main__ - INFO - Creating visualization: multi_machine_bar for metric: 0
+2025-07-11 20:43:28,200 - __main__ - INFO - DataFrame shape: (12, 3)
+2025-07-11 20:43:28,200 - __main__ - INFO - DataFrame columns: ['production_date', 'machine_name', 'daily_production']
+2025-07-11 20:43:28,204 - __main__ - INFO - DataFrame sample data:
+  production_date  machine_name  daily_production
+0      2025-03-05  TJ-Stenter01          84493.28
+1      2025-03-05  TJ-Stenter02          84493.28
+2      2025-03-05  TJ-Stenter03          84493.28
+3      2025-03-06  TJ-Stenter01          73257.29
+4      2025-03-06  TJ-Stenter02          73257.29
+2025-07-11 20:43:28,207 - __main__ - INFO - Converted column production_date to datetime
+2025-07-11 20:43:28,207 - __main__ - INFO - Numeric columns: ['daily_production']
+2025-07-11 20:43:28,207 - __main__ - INFO - Categorical columns: ['production_date', 'machine_name']
+2025-07-11 20:43:28,207 - __main__ - INFO - Detected columns - Date: production_date, Machine: machine_name, Value: daily_production
+2025-07-11 20:43:28,314 - __main__ - INFO - Visualization created successfully
+2025-07-11 20:43:28,316 - __main__ - INFO - Visualization created and stored successfully
+2025-07-11 20:43:28,316 - __main__ - ERROR - Error creating visualization: 'int' object has no attribute 'capitalize'
+2025-07-11 20:43:29,192 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-11 20:43:29,196 - __main__ - INFO - Response generated successfully
+2025-07-11 20:43:29,197 - __main__ - INFO - Conversation turn completed
+2025-07-11 20:43:49,465 - __main__ - INFO - User query received: Plot the production of each machines (all 3 machines) with bar chart in March from 5th to 8th
+2025-07-11 20:43:49,466 - __main__ - INFO - Processing user query: Plot the production of each machines (all 3 machines) with bar chart in March from 5th to 8th
+2025-07-11 20:43:49,466 - __main__ - INFO - Analyzing query for metric and visualization: Plot the production of each machines (all 3 machines) with bar chart in March from 5th to 8th
+2025-07-11 20:43:49,466 - __main__ - INFO - Detected metric: production, Visualization needed: True, Chart type: multi_machine_bar, Multi-machine: True
+2025-07-11 20:43:50,028 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-07-11 20:43:50,029 - groq._base_client - INFO - Retrying request to /openai/v1/chat/completions in 16.000000 seconds
+2025-07-11 20:44:07,387 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-11 20:44:07,392 - __main__ - INFO - Generated SQL query: SELECT 
+    DATE(daily_consumption.date) AS production_date,
+    daily_consumption.device_iddevice AS machine_name,
+    SUM(daily_production_output.production_output) AS daily_production
+FROM 
+    daily_consumption daily_consumption
+JOIN 
+    daily_production_output daily_production_output ON daily_consumption.date = daily_production_output.date
+WHERE 
+    daily_consumption.date BETWEEN '2025-03-05' AND '2025-03-08'
+GROUP BY 
+    DATE(daily_consumption.date), daily_consumption.device_iddevice
+ORDER BY 
+    production_date, machine_name;
+2025-07-11 20:44:07,397 - __main__ - INFO - SQL query executed successfully. Response length: 687
+2025-07-11 20:44:07,405 - __main__ - INFO - DataFrame created with shape: (12, 3)
+2025-07-11 20:44:07,405 - __main__ - INFO - Creating visualization: multi_machine_bar for metric: 0
+2025-07-11 20:44:07,405 - __main__ - INFO - DataFrame shape: (12, 3)
+2025-07-11 20:44:07,405 - __main__ - INFO - DataFrame columns: ['production_date', 'machine_name', 'daily_production']
+2025-07-11 20:44:07,412 - __main__ - INFO - DataFrame sample data:
+  production_date  machine_name  daily_production
+0      2025-03-05  TJ-Stenter01          84493.28
+1      2025-03-05  TJ-Stenter02          84493.28
+2      2025-03-05  TJ-Stenter03          84493.28
+3      2025-03-06  TJ-Stenter01          73257.29
+4      2025-03-06  TJ-Stenter02          73257.29
+2025-07-11 20:44:07,415 - __main__ - INFO - Converted column production_date to datetime
+2025-07-11 20:44:07,415 - __main__ - INFO - Numeric columns: ['daily_production']
+2025-07-11 20:44:07,415 - __main__ - INFO - Categorical columns: ['production_date', 'machine_name']
+2025-07-11 20:44:07,415 - __main__ - INFO - Detected columns - Date: production_date, Machine: machine_name, Value: daily_production
+2025-07-11 20:44:07,462 - __main__ - INFO - Visualization created successfully
+2025-07-11 20:44:07,462 - __main__ - INFO - Visualization created and stored successfully
+2025-07-11 20:44:07,462 - __main__ - ERROR - Error creating visualization: 'int' object has no attribute 'capitalize'
+2025-07-11 20:44:07,813 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-07-11 20:44:07,814 - groq._base_client - INFO - Retrying request to /openai/v1/chat/completions in 5.000000 seconds
+2025-07-11 20:44:13,558 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-11 20:44:13,560 - __main__ - INFO - Response generated successfully
+2025-07-11 20:44:13,561 - __main__ - INFO - Conversation turn completed
+2025-07-11 20:52:30,777 - __main__ - INFO - Attempting to connect to database: localhost:3306/Analyzee_machines
+2025-07-11 20:52:30,868 - __main__ - INFO - Database connection successful
+2025-07-11 20:52:30,869 - __main__ - INFO - Database connected successfully via UI
+2025-07-11 20:52:45,400 - __main__ - INFO - User query received: Plot the production of each machines (all 3 machines) with bar chart in March from 5th to 8th
+2025-07-11 20:52:45,403 - __main__ - INFO - Processing user query: Plot the production of each machines (all 3 machines) with bar chart in March from 5th to 8th
+2025-07-11 20:52:45,404 - __main__ - INFO - Analyzing query for metric and visualization: Plot the production of each machines (all 3 machines) with bar chart in March from 5th to 8th
+2025-07-11 20:52:45,404 - __main__ - INFO - Detected metric: production, Visualization needed: True, Chart type: multi_machine_bar, Multi-machine: True
+2025-07-11 20:52:48,013 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-11 20:52:48,018 - __main__ - INFO - Generated SQL query: SELECT 
+    DATE_FORMAT(actual_start_time, '%Y-%m-%d') AS production_date,
+    device_name AS machine_name,
+    SUM(production_output) AS daily_production
+FROM 
+    hourly_production
+WHERE 
+    YEAR(actual_start_time) = 2025 
+    AND MONTH(actual_start_time) = 3 
+    AND DAY(actual_start_time) BETWEEN 5 AND 8
+GROUP BY 
+    DATE_FORMAT(actual_start_time, '%Y-%m-%d'), device_name
+ORDER BY 
+    production_date, machine_name;
+2025-07-11 20:52:48,033 - __main__ - ERROR - SQL execution error: (mysql.connector.errors.ProgrammingError) 1146 (42S02): Table 'analyzee_machines.hourly_production' doesn't exist
+[SQL: SELECT 
+    DATE_FORMAT(actual_start_time, '%Y-%m-%d') AS production_date,
+    device_name AS machine_name,
+    SUM(production_output) AS daily_production
+FROM 
+    hourly_production
+WHERE 
+    YEAR(actual_start_time) = 2025 
+    AND MONTH(actual_start_time) = 3 
+    AND DAY(actual_start_time) BETWEEN 5 AND 8
+GROUP BY 
+    DATE_FORMAT(actual_start_time, '%Y-%m-%d'), device_name
+ORDER BY 
+    production_date, machine_name;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+
+**Generated SQL Query:**
+```sql
+SELECT 
+    DATE_FORMAT(actual_start_time, '%Y-%m-%d') AS production_date,
+    device_name AS machine_name,
+    SUM(production_output) AS daily_production
+FROM 
+    hourly_production
+WHERE 
+    YEAR(actual_start_time) = 2025 
+    AND MONTH(actual_start_time) = 3 
+    AND DAY(actual_start_time) BETWEEN 5 AND 8
+GROUP BY 
+    DATE_FORMAT(actual_start_time, '%Y-%m-%d'), device_name
+ORDER BY 
+    production_date, machine_name;
+```
+
+**Possible issues:**
+1. Column names might be incorrect
+2. Table structure might be different
+3. Date format issues
+4. Data type mismatches
+2025-07-11 20:52:48,036 - __main__ - INFO - Conversation turn completed
+2025-07-11 20:52:53,791 - __main__ - INFO - Attempting to connect to database: localhost:3306/Analyzee_machines
+2025-07-11 20:52:53,815 - __main__ - INFO - Database connection successful
+2025-07-11 20:52:53,816 - __main__ - INFO - Database connected successfully via UI
+2025-07-11 20:52:58,398 - __main__ - INFO - User query received: Plot the production of each machines (all 3 machines) with bar chart in March from 5th to 8th
+2025-07-11 20:52:58,400 - __main__ - INFO - Processing user query: Plot the production of each machines (all 3 machines) with bar chart in March from 5th to 8th
+2025-07-11 20:52:58,400 - __main__ - INFO - Analyzing query for metric and visualization: Plot the production of each machines (all 3 machines) with bar chart in March from 5th to 8th
+2025-07-11 20:52:58,400 - __main__ - INFO - Detected metric: production, Visualization needed: True, Chart type: multi_machine_bar, Multi-machine: True
+2025-07-11 20:52:58,730 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-07-11 20:52:58,731 - groq._base_client - INFO - Retrying request to /openai/v1/chat/completions in 21.000000 seconds
+2025-07-11 20:53:21,085 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-11 20:53:21,091 - __main__ - INFO - Generated SQL query: SELECT 
+    DATE_FORMAT(actual_start_time, '%Y-%m-%d') AS production_date,
+    device_name AS machine_name,
+    SUM(production_output) AS daily_production
+FROM 
+    hourly_production
+WHERE 
+    YEAR(actual_start_time) = 2025 
+    AND MONTH(actual_start_time) = 3 
+    AND DATE(actual_start_time) BETWEEN '2025-03-05' AND '2025-03-08'
+GROUP BY 
+    DATE_FORMAT(actual_start_time, '%Y-%m-%d'), device_name
+ORDER BY 
+    production_date, machine_name;
+2025-07-11 20:53:21,098 - __main__ - ERROR - SQL execution error: (mysql.connector.errors.ProgrammingError) 1146 (42S02): Table 'analyzee_machines.hourly_production' doesn't exist
+[SQL: SELECT 
+    DATE_FORMAT(actual_start_time, '%Y-%m-%d') AS production_date,
+    device_name AS machine_name,
+    SUM(production_output) AS daily_production
+FROM 
+    hourly_production
+WHERE 
+    YEAR(actual_start_time) = 2025 
+    AND MONTH(actual_start_time) = 3 
+    AND DATE(actual_start_time) BETWEEN '2025-03-05' AND '2025-03-08'
+GROUP BY 
+    DATE_FORMAT(actual_start_time, '%Y-%m-%d'), device_name
+ORDER BY 
+    production_date, machine_name;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+
+**Generated SQL Query:**
+```sql
+SELECT 
+    DATE_FORMAT(actual_start_time, '%Y-%m-%d') AS production_date,
+    device_name AS machine_name,
+    SUM(production_output) AS daily_production
+FROM 
+    hourly_production
+WHERE 
+    YEAR(actual_start_time) = 2025 
+    AND MONTH(actual_start_time) = 3 
+    AND DATE(actual_start_time) BETWEEN '2025-03-05' AND '2025-03-08'
+GROUP BY 
+    DATE_FORMAT(actual_start_time, '%Y-%m-%d'), device_name
+ORDER BY 
+    production_date, machine_name;
+```
+
+**Possible issues:**
+1. Column names might be incorrect
+2. Table structure might be different
+3. Date format issues
+4. Data type mismatches
+2025-07-11 20:53:21,100 - __main__ - INFO - Conversation turn completed
+2025-07-11 20:53:26,919 - __main__ - INFO - Attempting to connect to database: localhost:3306/Analyzee_machines
+2025-07-11 20:53:26,948 - __main__ - INFO - Database connection successful
+2025-07-11 20:53:26,949 - __main__ - INFO - Database connected successfully via UI
+2025-07-11 20:53:35,309 - __main__ - INFO - User query received: Plot the production of each machines (all 3 machines) with bar chart in March from 5th to 8th
+2025-07-11 20:53:35,311 - __main__ - INFO - Processing user query: Plot the production of each machines (all 3 machines) with bar chart in March from 5th to 8th
+2025-07-11 20:53:35,312 - __main__ - INFO - Analyzing query for metric and visualization: Plot the production of each machines (all 3 machines) with bar chart in March from 5th to 8th
+2025-07-11 20:53:35,312 - __main__ - INFO - Detected metric: production, Visualization needed: True, Chart type: multi_machine_bar, Multi-machine: True
+2025-07-11 20:53:35,586 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-07-11 20:53:35,587 - groq._base_client - INFO - Retrying request to /openai/v1/chat/completions in 29.000000 seconds
+2025-07-11 20:54:05,834 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-11 20:54:05,838 - __main__ - INFO - Generated SQL query: SELECT 
+    DATE_FORMAT(actual_start_time, '%Y-%m-%d') AS production_date,
+    device_name AS machine_name,
+    SUM(production_output) AS daily_production
+FROM 
+    hourly_production
+WHERE 
+    YEAR(actual_start_time) = 2025 
+    AND MONTH(actual_start_time) = 3 
+    AND DATE(actual_start_time) BETWEEN '2025-03-05' AND '2025-03-08'
+GROUP BY 
+    DATE_FORMAT(actual_start_time, '%Y-%m-%d'), device_name
+ORDER BY 
+    production_date, machine_name;
+2025-07-11 20:54:05,854 - __main__ - ERROR - SQL execution error: (mysql.connector.errors.ProgrammingError) 1146 (42S02): Table 'analyzee_machines.hourly_production' doesn't exist
+[SQL: SELECT 
+    DATE_FORMAT(actual_start_time, '%Y-%m-%d') AS production_date,
+    device_name AS machine_name,
+    SUM(production_output) AS daily_production
+FROM 
+    hourly_production
+WHERE 
+    YEAR(actual_start_time) = 2025 
+    AND MONTH(actual_start_time) = 3 
+    AND DATE(actual_start_time) BETWEEN '2025-03-05' AND '2025-03-08'
+GROUP BY 
+    DATE_FORMAT(actual_start_time, '%Y-%m-%d'), device_name
+ORDER BY 
+    production_date, machine_name;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+
+**Generated SQL Query:**
+```sql
+SELECT 
+    DATE_FORMAT(actual_start_time, '%Y-%m-%d') AS production_date,
+    device_name AS machine_name,
+    SUM(production_output) AS daily_production
+FROM 
+    hourly_production
+WHERE 
+    YEAR(actual_start_time) = 2025 
+    AND MONTH(actual_start_time) = 3 
+    AND DATE(actual_start_time) BETWEEN '2025-03-05' AND '2025-03-08'
+GROUP BY 
+    DATE_FORMAT(actual_start_time, '%Y-%m-%d'), device_name
+ORDER BY 
+    production_date, machine_name;
+```
+
+**Possible issues:**
+1. Column names might be incorrect
+2. Table structure might be different
+3. Date format issues
+4. Data type mismatches
+2025-07-11 20:54:05,857 - __main__ - INFO - Conversation turn completed
+2025-07-11 20:54:16,063 - __main__ - INFO - Attempting to connect to database: localhost:3306/Analyzee_machines
+2025-07-11 20:54:16,102 - __main__ - INFO - Database connection successful
+2025-07-11 20:54:16,102 - __main__ - INFO - Database connected successfully via UI
+2025-07-11 20:54:19,424 - __main__ - INFO - User query received: Plot the production of each machines (all 3 machines) with bar chart in March from 5th to 8th
+2025-07-11 20:54:19,428 - __main__ - INFO - Processing user query: Plot the production of each machines (all 3 machines) with bar chart in March from 5th to 8th
+2025-07-11 20:54:19,428 - __main__ - INFO - Analyzing query for metric and visualization: Plot the production of each machines (all 3 machines) with bar chart in March from 5th to 8th
+2025-07-11 20:54:19,428 - __main__ - INFO - Detected metric: production, Visualization needed: True, Chart type: multi_machine_bar, Multi-machine: True
+2025-07-11 20:54:19,950 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-07-11 20:54:19,951 - groq._base_client - INFO - Retrying request to /openai/v1/chat/completions in 33.000000 seconds
+2025-07-11 20:54:29,918 - __main__ - INFO - Attempting to connect to database: localhost:3306/Analyzee_machines
+2025-07-11 20:54:29,942 - __main__ - INFO - Database connection successful
+2025-07-11 20:54:29,942 - __main__ - INFO - Database connected successfully via UI
+2025-07-11 20:54:33,348 - __main__ - INFO - User query received: Plot the production of each machines (all 3 machines) with bar chart in March from 5th to 8th
+2025-07-11 20:54:33,350 - __main__ - INFO - Processing user query: Plot the production of each machines (all 3 machines) with bar chart in March from 5th to 8th
+2025-07-11 20:54:33,351 - __main__ - INFO - Analyzing query for metric and visualization: Plot the production of each machines (all 3 machines) with bar chart in March from 5th to 8th
+2025-07-11 20:54:33,351 - __main__ - INFO - Detected metric: production, Visualization needed: True, Chart type: multi_machine_bar, Multi-machine: True
+2025-07-11 20:54:33,875 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-07-11 20:54:33,876 - groq._base_client - INFO - Retrying request to /openai/v1/chat/completions in 15.000000 seconds
+2025-07-11 20:54:50,001 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-11 20:54:50,006 - __main__ - INFO - Generated SQL query: SELECT 
+    DATE_FORMAT(actual_start_time, '%Y-%m-%d') AS production_date,
+    device_name AS machine_name,
+    SUM(production_output) AS daily_production
+FROM 
+    hourly_production
+WHERE 
+    YEAR(actual_start_time) = 2025 
+    AND MONTH(actual_start_time) = 3 
+    AND DATE(actual_start_time) BETWEEN '2025-03-05' AND '2025-03-08'
+GROUP BY 
+    DATE_FORMAT(actual_start_time, '%Y-%m-%d'), device_name
+ORDER BY 
+    production_date, machine_name;
+2025-07-11 20:54:50,011 - __main__ - ERROR - SQL execution error: (mysql.connector.errors.ProgrammingError) 1146 (42S02): Table 'analyzee_machines.hourly_production' doesn't exist
+[SQL: SELECT 
+    DATE_FORMAT(actual_start_time, '%Y-%m-%d') AS production_date,
+    device_name AS machine_name,
+    SUM(production_output) AS daily_production
+FROM 
+    hourly_production
+WHERE 
+    YEAR(actual_start_time) = 2025 
+    AND MONTH(actual_start_time) = 3 
+    AND DATE(actual_start_time) BETWEEN '2025-03-05' AND '2025-03-08'
+GROUP BY 
+    DATE_FORMAT(actual_start_time, '%Y-%m-%d'), device_name
+ORDER BY 
+    production_date, machine_name;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+
+**Generated SQL Query:**
+```sql
+SELECT 
+    DATE_FORMAT(actual_start_time, '%Y-%m-%d') AS production_date,
+    device_name AS machine_name,
+    SUM(production_output) AS daily_production
+FROM 
+    hourly_production
+WHERE 
+    YEAR(actual_start_time) = 2025 
+    AND MONTH(actual_start_time) = 3 
+    AND DATE(actual_start_time) BETWEEN '2025-03-05' AND '2025-03-08'
+GROUP BY 
+    DATE_FORMAT(actual_start_time, '%Y-%m-%d'), device_name
+ORDER BY 
+    production_date, machine_name;
+```
+
+**Possible issues:**
+1. Column names might be incorrect
+2. Table structure might be different
+3. Date format issues
+4. Data type mismatches
+2025-07-11 20:54:50,014 - __main__ - INFO - Conversation turn completed
+2025-07-11 20:54:53,470 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-07-11 20:54:53,471 - groq._base_client - INFO - Retrying request to /openai/v1/chat/completions in 44.000000 seconds
+2025-07-11 20:55:06,335 - __main__ - INFO - Attempting to connect to database: localhost:3306/Analyzee_machines
+2025-07-11 20:55:06,449 - __main__ - INFO - Database connection successful
+2025-07-11 20:55:06,450 - __main__ - INFO - Database connected successfully via UI
+2025-07-11 20:55:11,195 - __main__ - INFO - User query received: Plot the production of each machines (all 3 machines) with bar chart in March from 5th to 8th
+2025-07-11 20:55:11,198 - __main__ - INFO - Processing user query: Plot the production of each machines (all 3 machines) with bar chart in March from 5th to 8th
+2025-07-11 20:55:11,198 - __main__ - INFO - Analyzing query for metric and visualization: Plot the production of each machines (all 3 machines) with bar chart in March from 5th to 8th
+2025-07-11 20:55:11,199 - __main__ - INFO - Detected metric: production, Visualization needed: True, Chart type: multi_machine_bar, Multi-machine: True
+2025-07-11 20:55:11,819 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-07-11 20:55:11,820 - groq._base_client - INFO - Retrying request to /openai/v1/chat/completions in 22.000000 seconds
+2025-07-11 20:55:35,226 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-11 20:55:35,240 - __main__ - INFO - Generated SQL query: SELECT 
+    DATE_FORMAT(actual_start_time, '%Y-%m-%d') AS production_date,
+    device_name AS machine_name,
+    SUM(production_output) AS daily_production
+FROM 
+    hourly_production
+WHERE 
+    YEAR(actual_start_time) = 2025 
+    AND MONTH(actual_start_time) = 3 
+    AND DATE(actual_start_time) BETWEEN '2025-03-05' AND '2025-03-08'
+GROUP BY 
+    DATE_FORMAT(actual_start_time, '%Y-%m-%d'), device_name
+ORDER BY 
+    production_date, machine_name;
+2025-07-11 20:55:35,246 - __main__ - ERROR - SQL execution error: (mysql.connector.errors.ProgrammingError) 1146 (42S02): Table 'analyzee_machines.hourly_production' doesn't exist
+[SQL: SELECT 
+    DATE_FORMAT(actual_start_time, '%Y-%m-%d') AS production_date,
+    device_name AS machine_name,
+    SUM(production_output) AS daily_production
+FROM 
+    hourly_production
+WHERE 
+    YEAR(actual_start_time) = 2025 
+    AND MONTH(actual_start_time) = 3 
+    AND DATE(actual_start_time) BETWEEN '2025-03-05' AND '2025-03-08'
+GROUP BY 
+    DATE_FORMAT(actual_start_time, '%Y-%m-%d'), device_name
+ORDER BY 
+    production_date, machine_name;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+
+**Generated SQL Query:**
+```sql
+SELECT 
+    DATE_FORMAT(actual_start_time, '%Y-%m-%d') AS production_date,
+    device_name AS machine_name,
+    SUM(production_output) AS daily_production
+FROM 
+    hourly_production
+WHERE 
+    YEAR(actual_start_time) = 2025 
+    AND MONTH(actual_start_time) = 3 
+    AND DATE(actual_start_time) BETWEEN '2025-03-05' AND '2025-03-08'
+GROUP BY 
+    DATE_FORMAT(actual_start_time, '%Y-%m-%d'), device_name
+ORDER BY 
+    production_date, machine_name;
+```
+
+**Possible issues:**
+1. Column names might be incorrect
+2. Table structure might be different
+3. Date format issues
+4. Data type mismatches
+2025-07-11 20:55:35,248 - __main__ - INFO - Conversation turn completed
+2025-07-11 20:57:18,914 - __main__ - INFO - User query received: Plot the production of each machines (all 3 machines) with bar chart in March from 5th to 8th
+2025-07-11 20:57:18,917 - __main__ - INFO - Processing user query: Plot the production of each machines (all 3 machines) with bar chart in March from 5th to 8th
+2025-07-11 20:57:18,917 - __main__ - INFO - Analyzing query for metric and visualization: Plot the production of each machines (all 3 machines) with bar chart in March from 5th to 8th
+2025-07-11 20:57:18,918 - __main__ - INFO - Detected metric: production, Visualization needed: True, Chart type: multi_machine_bar, Multi-machine: True
+2025-07-11 20:57:20,426 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-11 20:57:20,431 - __main__ - INFO - Generated SQL query: SELECT 
+    DATE_FORMAT(actual_start_time, '%Y-%m-%d') AS production_date,
+    device_name AS machine_name,
+    SUM(production_output) AS daily_production
+FROM 
+    hourly_production
+WHERE 
+    YEAR(actual_start_time) = 2025 
+    AND MONTH(actual_start_time) = 3 
+    AND DATE(actual_start_time) BETWEEN '2025-03-05' AND '2025-03-08'
+GROUP BY 
+    DATE_FORMAT(actual_start_time, '%Y-%m-%d'), device_name
+ORDER BY 
+    production_date, machine_name;
+2025-07-11 20:57:20,435 - __main__ - ERROR - SQL execution error: (mysql.connector.errors.ProgrammingError) 1146 (42S02): Table 'analyzee_machines.hourly_production' doesn't exist
+[SQL: SELECT 
+    DATE_FORMAT(actual_start_time, '%Y-%m-%d') AS production_date,
+    device_name AS machine_name,
+    SUM(production_output) AS daily_production
+FROM 
+    hourly_production
+WHERE 
+    YEAR(actual_start_time) = 2025 
+    AND MONTH(actual_start_time) = 3 
+    AND DATE(actual_start_time) BETWEEN '2025-03-05' AND '2025-03-08'
+GROUP BY 
+    DATE_FORMAT(actual_start_time, '%Y-%m-%d'), device_name
+ORDER BY 
+    production_date, machine_name;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+
+**Generated SQL Query:**
+```sql
+SELECT 
+    DATE_FORMAT(actual_start_time, '%Y-%m-%d') AS production_date,
+    device_name AS machine_name,
+    SUM(production_output) AS daily_production
+FROM 
+    hourly_production
+WHERE 
+    YEAR(actual_start_time) = 2025 
+    AND MONTH(actual_start_time) = 3 
+    AND DATE(actual_start_time) BETWEEN '2025-03-05' AND '2025-03-08'
+GROUP BY 
+    DATE_FORMAT(actual_start_time, '%Y-%m-%d'), device_name
+ORDER BY 
+    production_date, machine_name;
+```
+
+**Possible issues:**
+1. Column names might be incorrect
+2. Table structure might be different
+3. Date format issues
+4. Data type mismatches
+2025-07-11 20:57:20,436 - __main__ - INFO - Conversation turn completed
+2025-07-11 20:57:25,600 - __main__ - INFO - Attempting to connect to database: localhost:3306/Analyzee_machines
+2025-07-11 20:57:25,631 - __main__ - INFO - Database connection successful
+2025-07-11 20:57:25,632 - __main__ - INFO - Database connected successfully via UI
+2025-07-11 20:57:29,195 - __main__ - INFO - User query received: Plot the production of each machines (all 3 machines) with bar chart in March from 5th to 8th
+2025-07-11 20:57:29,198 - __main__ - INFO - Processing user query: Plot the production of each machines (all 3 machines) with bar chart in March from 5th to 8th
+2025-07-11 20:57:29,198 - __main__ - INFO - Analyzing query for metric and visualization: Plot the production of each machines (all 3 machines) with bar chart in March from 5th to 8th
+2025-07-11 20:57:29,198 - __main__ - INFO - Detected metric: production, Visualization needed: True, Chart type: multi_machine_bar, Multi-machine: True
+2025-07-11 20:57:29,748 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-07-11 20:57:29,749 - groq._base_client - INFO - Retrying request to /openai/v1/chat/completions in 27.000000 seconds
+2025-07-11 20:57:58,515 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-11 20:57:58,519 - __main__ - INFO - Generated SQL query: SELECT 
+    DATE_FORMAT(actual_start_time, '%Y-%m-%d') AS production_date,
+    device_name AS machine_name,
+    SUM(production_output) AS daily_production
+FROM 
+    hourly_production
+WHERE 
+    YEAR(actual_start_time) = 2025 
+    AND MONTH(actual_start_time) = 3 
+    AND DATE(actual_start_time) BETWEEN '2025-03-05' AND '2025-03-08'
+GROUP BY 
+    DATE_FORMAT(actual_start_time, '%Y-%m-%d'), device_name
+ORDER BY 
+    production_date, machine_name;
+2025-07-11 20:57:58,525 - __main__ - ERROR - SQL execution error: (mysql.connector.errors.ProgrammingError) 1146 (42S02): Table 'analyzee_machines.hourly_production' doesn't exist
+[SQL: SELECT 
+    DATE_FORMAT(actual_start_time, '%Y-%m-%d') AS production_date,
+    device_name AS machine_name,
+    SUM(production_output) AS daily_production
+FROM 
+    hourly_production
+WHERE 
+    YEAR(actual_start_time) = 2025 
+    AND MONTH(actual_start_time) = 3 
+    AND DATE(actual_start_time) BETWEEN '2025-03-05' AND '2025-03-08'
+GROUP BY 
+    DATE_FORMAT(actual_start_time, '%Y-%m-%d'), device_name
+ORDER BY 
+    production_date, machine_name;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+
+**Generated SQL Query:**
+```sql
+SELECT 
+    DATE_FORMAT(actual_start_time, '%Y-%m-%d') AS production_date,
+    device_name AS machine_name,
+    SUM(production_output) AS daily_production
+FROM 
+    hourly_production
+WHERE 
+    YEAR(actual_start_time) = 2025 
+    AND MONTH(actual_start_time) = 3 
+    AND DATE(actual_start_time) BETWEEN '2025-03-05' AND '2025-03-08'
+GROUP BY 
+    DATE_FORMAT(actual_start_time, '%Y-%m-%d'), device_name
+ORDER BY 
+    production_date, machine_name;
+```
+
+**Possible issues:**
+1. Column names might be incorrect
+2. Table structure might be different
+3. Date format issues
+4. Data type mismatches
+2025-07-11 20:57:58,526 - __main__ - INFO - Conversation turn completed
+2025-07-11 20:58:35,533 - __main__ - INFO - Attempting to connect to database: localhost:3306/Analyzee_machines
+2025-07-11 20:58:35,561 - __main__ - INFO - Database connection successful
+2025-07-11 20:58:35,561 - __main__ - INFO - Database connected successfully via UI
+2025-07-11 20:58:39,430 - __main__ - INFO - User query received: Plot the production of each machines (all 3 machines) with bar chart in March from 5th to 8th
+2025-07-11 20:58:39,433 - __main__ - INFO - Processing user query: Plot the production of each machines (all 3 machines) with bar chart in March from 5th to 8th
+2025-07-11 20:58:39,433 - __main__ - INFO - Analyzing query for metric and visualization: Plot the production of each machines (all 3 machines) with bar chart in March from 5th to 8th
+2025-07-11 20:58:39,434 - __main__ - INFO - Detected metric: production, Visualization needed: True, Chart type: multi_machine_bar, Multi-machine: True
+2025-07-11 20:58:39,914 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-07-11 20:58:39,915 - groq._base_client - INFO - Retrying request to /openai/v1/chat/completions in 2.000000 seconds
+2025-07-11 20:58:42,830 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-11 20:58:42,834 - __main__ - INFO - Generated SQL query: SELECT 
+    DATE_FORMAT(actual_start_time, '%Y-%m-%d') AS production_date,
+    device_name AS machine_name,
+    SUM(production_output) AS daily_production
+FROM 
+    hourly_production
+WHERE 
+    YEAR(actual_start_time) = 2025 
+    AND MONTH(actual_start_time) = 3 
+    AND DATE(actual_start_time) BETWEEN '2025-03-05' AND '2025-03-08'
+GROUP BY 
+    DATE_FORMAT(actual_start_time, '%Y-%m-%d'), device_name
+ORDER BY 
+    production_date, machine_name;
+2025-07-11 20:58:42,841 - __main__ - ERROR - SQL execution error: (mysql.connector.errors.ProgrammingError) 1146 (42S02): Table 'analyzee_machines.hourly_production' doesn't exist
+[SQL: SELECT 
+    DATE_FORMAT(actual_start_time, '%Y-%m-%d') AS production_date,
+    device_name AS machine_name,
+    SUM(production_output) AS daily_production
+FROM 
+    hourly_production
+WHERE 
+    YEAR(actual_start_time) = 2025 
+    AND MONTH(actual_start_time) = 3 
+    AND DATE(actual_start_time) BETWEEN '2025-03-05' AND '2025-03-08'
+GROUP BY 
+    DATE_FORMAT(actual_start_time, '%Y-%m-%d'), device_name
+ORDER BY 
+    production_date, machine_name;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+
+**Generated SQL Query:**
+```sql
+SELECT 
+    DATE_FORMAT(actual_start_time, '%Y-%m-%d') AS production_date,
+    device_name AS machine_name,
+    SUM(production_output) AS daily_production
+FROM 
+    hourly_production
+WHERE 
+    YEAR(actual_start_time) = 2025 
+    AND MONTH(actual_start_time) = 3 
+    AND DATE(actual_start_time) BETWEEN '2025-03-05' AND '2025-03-08'
+GROUP BY 
+    DATE_FORMAT(actual_start_time, '%Y-%m-%d'), device_name
+ORDER BY 
+    production_date, machine_name;
+```
+
+**Possible issues:**
+1. Column names might be incorrect
+2. Table structure might be different
+3. Date format issues
+4. Data type mismatches
+2025-07-11 20:58:42,842 - __main__ - INFO - Conversation turn completed
+2025-07-11 20:59:06,417 - __main__ - INFO - Attempting to connect to database: localhost:3306/Analyzee_machines
+2025-07-11 20:59:06,535 - __main__ - INFO - Database connection successful
+2025-07-11 20:59:06,536 - __main__ - INFO - Database connected successfully via UI
+2025-07-11 20:59:10,083 - __main__ - INFO - User query received: hey
+2025-07-11 20:59:10,085 - __main__ - INFO - Conversation turn completed
+2025-07-11 20:59:12,288 - __main__ - INFO - User query received: Plot the production of each machines (all 3 machines) with bar chart in March from 5th to 8th
+2025-07-11 20:59:12,290 - __main__ - INFO - Processing user query: Plot the production of each machines (all 3 machines) with bar chart in March from 5th to 8th
+2025-07-11 20:59:12,291 - __main__ - INFO - Analyzing query for metric and visualization: Plot the production of each machines (all 3 machines) with bar chart in March from 5th to 8th
+2025-07-11 20:59:12,292 - __main__ - INFO - Detected metric: production, Visualization needed: True, Chart type: multi_machine_bar, Multi-machine: True
+2025-07-11 20:59:12,956 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-07-11 20:59:12,957 - groq._base_client - INFO - Retrying request to /openai/v1/chat/completions in 14.000000 seconds
+2025-07-11 20:59:28,602 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-11 20:59:28,626 - __main__ - INFO - Generated SQL query: SELECT 
+    DATE_FORMAT(actual_start_time, '%Y-%m-%d') AS production_date,
+    device_name AS machine_name,
+    SUM(production_output) AS daily_production
+FROM 
+    hourly_production
+WHERE 
+    YEAR(actual_start_time) = 2025 
+    AND MONTH(actual_start_time) = 3 
+    AND DAY(actual_start_time) BETWEEN 5 AND 8
+GROUP BY 
+    DATE_FORMAT(actual_start_time, '%Y-%m-%d'), device_name
+ORDER BY 
+    production_date, machine_name;
+2025-07-11 20:59:28,636 - __main__ - ERROR - SQL execution error: (mysql.connector.errors.ProgrammingError) 1146 (42S02): Table 'analyzee_machines.hourly_production' doesn't exist
+[SQL: SELECT 
+    DATE_FORMAT(actual_start_time, '%Y-%m-%d') AS production_date,
+    device_name AS machine_name,
+    SUM(production_output) AS daily_production
+FROM 
+    hourly_production
+WHERE 
+    YEAR(actual_start_time) = 2025 
+    AND MONTH(actual_start_time) = 3 
+    AND DAY(actual_start_time) BETWEEN 5 AND 8
+GROUP BY 
+    DATE_FORMAT(actual_start_time, '%Y-%m-%d'), device_name
+ORDER BY 
+    production_date, machine_name;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+
+**Generated SQL Query:**
+```sql
+SELECT 
+    DATE_FORMAT(actual_start_time, '%Y-%m-%d') AS production_date,
+    device_name AS machine_name,
+    SUM(production_output) AS daily_production
+FROM 
+    hourly_production
+WHERE 
+    YEAR(actual_start_time) = 2025 
+    AND MONTH(actual_start_time) = 3 
+    AND DAY(actual_start_time) BETWEEN 5 AND 8
+GROUP BY 
+    DATE_FORMAT(actual_start_time, '%Y-%m-%d'), device_name
+ORDER BY 
+    production_date, machine_name;
+```
+
+**Possible issues:**
+1. Column names might be incorrect
+2. Table structure might be different
+3. Date format issues
+4. Data type mismatches
+2025-07-11 20:59:28,639 - __main__ - INFO - Conversation turn completed
+2025-07-12 12:20:26,184 - __main__ - INFO - Attempting to connect to database: localhost:3306/Analyzee_machines
+2025-07-12 12:20:26,363 - __main__ - INFO - Database connection successful
+2025-07-12 12:20:26,363 - __main__ - INFO - Database connected successfully via UI
+2025-07-12 12:20:29,086 - __main__ - INFO - User query received: Plot the production of each machines (all 3 machines) with bar chart in March from 5th to 8th
+2025-07-12 12:20:29,091 - __main__ - INFO - Processing user query: Plot the production of each machines (all 3 machines) with bar chart in March from 5th to 8th
+2025-07-12 12:20:29,091 - __main__ - INFO - Analyzing query for metric and visualization: Plot the production of each machines (all 3 machines) with bar chart in March from 5th to 8th
+2025-07-12 12:20:29,091 - __main__ - INFO - Detected metric: production, Visualization needed: True, Chart type: multi_machine_bar, Multi-machine: True
+2025-07-12 12:20:30,903 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-12 12:20:30,908 - __main__ - INFO - Generated SQL query: SELECT 
+    DATE_FORMAT(actual_start_time, '%Y-%m-%d') AS production_date,
+    device_name AS machine_name,
+    SUM(production_output) AS daily_production
+FROM 
+    hourly_production
+WHERE 
+    YEAR(actual_start_time) = 2025 
+    AND MONTH(actual_start_time) = 3 
+    AND DAY(actual_start_time) BETWEEN 5 AND 8
+GROUP BY 
+    DATE_FORMAT(actual_start_time, '%Y-%m-%d'), device_name
+ORDER BY 
+    production_date, machine_name;
+2025-07-12 12:20:30,922 - __main__ - ERROR - SQL execution error: (mysql.connector.errors.ProgrammingError) 1146 (42S02): Table 'analyzee_machines.hourly_production' doesn't exist
+[SQL: SELECT 
+    DATE_FORMAT(actual_start_time, '%Y-%m-%d') AS production_date,
+    device_name AS machine_name,
+    SUM(production_output) AS daily_production
+FROM 
+    hourly_production
+WHERE 
+    YEAR(actual_start_time) = 2025 
+    AND MONTH(actual_start_time) = 3 
+    AND DAY(actual_start_time) BETWEEN 5 AND 8
+GROUP BY 
+    DATE_FORMAT(actual_start_time, '%Y-%m-%d'), device_name
+ORDER BY 
+    production_date, machine_name;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+
+**Generated SQL Query:**
+```sql
+SELECT 
+    DATE_FORMAT(actual_start_time, '%Y-%m-%d') AS production_date,
+    device_name AS machine_name,
+    SUM(production_output) AS daily_production
+FROM 
+    hourly_production
+WHERE 
+    YEAR(actual_start_time) = 2025 
+    AND MONTH(actual_start_time) = 3 
+    AND DAY(actual_start_time) BETWEEN 5 AND 8
+GROUP BY 
+    DATE_FORMAT(actual_start_time, '%Y-%m-%d'), device_name
+ORDER BY 
+    production_date, machine_name;
+```
+
+**Possible issues:**
+1. Column names might be incorrect
+2. Table structure might be different
+3. Date format issues
+4. Data type mismatches
+2025-07-12 12:20:30,924 - __main__ - INFO - Conversation turn completed
+2025-07-12 12:24:43,517 - __main__ - INFO - Attempting to connect to database: localhost:3306/Analyzee_machines
+2025-07-12 12:24:43,659 - __main__ - INFO - Database connection successful
+2025-07-12 12:24:43,659 - __main__ - INFO - Database connected successfully via UI
+2025-07-12 12:25:03,147 - __main__ - INFO - User query received: 
+give the highest production and the machine in the month of March
+2025-07-12 12:25:03,148 - __main__ - INFO - Processing user query: 
+give the highest production and the machine in the month of March
+2025-07-12 12:25:03,148 - __main__ - INFO - Analyzing query for visualization: 
+give the highest production and the machine in the month of March
+2025-07-12 12:25:03,148 - __main__ - INFO - Visualization needed: False, Chart type: bar, Multi-machine: False
+2025-07-12 12:25:04,764 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-12 12:25:04,784 - __main__ - INFO - Generated SQL query: SELECT 
+    device_name, 
+    SUM(production_output) AS highest_production
+FROM 
+    daily_production_1
+WHERE 
+    MONTH(start_date_time) = 3
+GROUP BY 
+    device_name
+ORDER BY 
+    highest_production DESC
+LIMIT 1;
+2025-07-12 12:25:04,789 - __main__ - INFO - SQL query executed successfully. Response length: 24
+2025-07-12 12:25:05,344 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-12 12:25:05,348 - __main__ - INFO - Response generated successfully
+2025-07-12 12:25:05,350 - __main__ - INFO - Conversation turn completed
+2025-07-12 12:27:13,862 - __main__ - INFO - User query received: give the each machine production in the month of march
+2025-07-12 12:27:13,865 - __main__ - INFO - Processing user query: give the each machine production in the month of march
+2025-07-12 12:27:13,865 - __main__ - INFO - Analyzing query for visualization: give the each machine production in the month of march
+2025-07-12 12:27:13,865 - __main__ - INFO - Visualization needed: False, Chart type: bar, Multi-machine: True
+2025-07-12 12:27:14,767 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-12 12:27:14,772 - __main__ - INFO - Generated SQL query: SELECT 
+    device_name AS machine_name,
+    SUM(production_output) AS monthly_production
+FROM 
+    hourly_production_1
+WHERE 
+    YEAR(actual_start_time) = 2025 
+    AND MONTH(actual_start_time) = 3 
+    AND production_output IS NOT NULL
+GROUP BY 
+    device_name
+ORDER BY 
+    monthly_production DESC;
+2025-07-12 12:27:14,783 - __main__ - INFO - SQL query executed successfully. Response length: 100
+2025-07-12 12:27:15,782 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-12 12:27:15,786 - __main__ - INFO - Response generated successfully
+2025-07-12 12:27:15,788 - __main__ - INFO - Conversation turn completed
+2025-07-12 12:27:34,275 - __main__ - INFO - User query received: give the each machine production in the month of march using pie chart
+2025-07-12 12:27:34,278 - __main__ - INFO - Processing user query: give the each machine production in the month of march using pie chart
+2025-07-12 12:27:34,279 - __main__ - INFO - Analyzing query for visualization: give the each machine production in the month of march using pie chart
+2025-07-12 12:27:34,279 - __main__ - INFO - Visualization needed: True, Chart type: pie, Multi-machine: True
+2025-07-12 12:27:35,973 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-12 12:27:35,978 - __main__ - INFO - Generated SQL query: SELECT 
+    device_name AS machine_name,
+    SUM(production_output) AS monthly_production
+FROM 
+    hourly_production_1
+WHERE 
+    YEAR(actual_start_time) = 2025 
+    AND MONTH(actual_start_time) = 3 
+    AND production_output IS NOT NULL
+GROUP BY 
+    device_name
+ORDER BY 
+    monthly_production DESC;
+2025-07-12 12:27:35,985 - __main__ - INFO - SQL query executed successfully. Response length: 100
+2025-07-12 12:27:36,020 - __main__ - INFO - DataFrame created with shape: (3, 2)
+2025-07-12 12:27:36,020 - __main__ - INFO - Creating visualization: pie
+2025-07-12 12:27:36,020 - __main__ - INFO - DataFrame shape: (3, 2)
+2025-07-12 12:27:36,020 - __main__ - INFO - DataFrame columns: ['machine_name', 'monthly_production']
+2025-07-12 12:27:36,029 - __main__ - INFO - DataFrame sample data:
+  machine_name  monthly_production
+0     Machine1           436520.00
+1     Machine3           377657.47
+2     Machine2           260997.60
+2025-07-12 12:27:36,030 - __main__ - INFO - Numeric columns: ['monthly_production']
+2025-07-12 12:27:36,030 - __main__ - INFO - Categorical columns: ['machine_name']
+2025-07-12 12:27:36,118 - __main__ - INFO - Visualization created successfully
+2025-07-12 12:27:36,997 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-12 12:27:37,001 - __main__ - INFO - Response generated successfully
+2025-07-12 12:27:37,003 - __main__ - INFO - Conversation turn completed
+2025-07-12 12:28:10,037 - __main__ - INFO - User query received: give the each machine production in the month of march using line chart
+2025-07-12 12:28:10,039 - __main__ - INFO - Processing user query: give the each machine production in the month of march using line chart
+2025-07-12 12:28:10,039 - __main__ - INFO - Analyzing query for visualization: give the each machine production in the month of march using line chart
+2025-07-12 12:28:10,039 - __main__ - INFO - Visualization needed: True, Chart type: line, Multi-machine: True
+2025-07-12 12:28:11,299 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-12 12:28:11,302 - __main__ - INFO - Generated SQL query: SELECT 
+    DATE_FORMAT(actual_start_time, '%Y-%m') AS production_month,
+    device_name AS machine_name,
+    SUM(production_output) AS monthly_production
+FROM 
+    hourly_production_1
+WHERE 
+    YEAR(actual_start_time) = 2025 
+    AND MONTH(actual_start_time) = 3 
+    AND production_output IS NOT NULL
+GROUP BY 
+    DATE_FORMAT(actual_start_time, '%Y-%m'), device_name
+ORDER BY 
+    production_month, machine_name;
+2025-07-12 12:28:11,315 - __main__ - INFO - SQL query executed successfully. Response length: 133
+2025-07-12 12:28:11,325 - __main__ - INFO - DataFrame created with shape: (3, 3)
+2025-07-12 12:28:11,325 - __main__ - INFO - Creating visualization: line
+2025-07-12 12:28:11,325 - __main__ - INFO - DataFrame shape: (3, 3)
+2025-07-12 12:28:11,325 - __main__ - INFO - DataFrame columns: ['production_month', 'machine_name', 'monthly_production']
+2025-07-12 12:28:11,330 - __main__ - INFO - DataFrame sample data:
+  production_month machine_name  monthly_production
+0          2025-03     Machine1           436520.00
+1          2025-03     Machine2           260997.60
+2          2025-03     Machine3           377657.47
+2025-07-12 12:28:11,339 - __main__ - INFO - Converted column production_month to datetime
+2025-07-12 12:28:11,339 - __main__ - INFO - Numeric columns: ['monthly_production']
+2025-07-12 12:28:11,340 - __main__ - INFO - Categorical columns: ['production_month', 'machine_name']
+2025-07-12 12:28:11,400 - __main__ - INFO - Visualization created successfully
+2025-07-12 12:28:11,716 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-07-12 12:28:11,718 - groq._base_client - INFO - Retrying request to /openai/v1/chat/completions in 1.000000 seconds
+2025-07-12 12:28:13,450 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-12 12:28:13,453 - __main__ - INFO - Response generated successfully
+2025-07-12 12:28:13,454 - __main__ - INFO - Conversation turn completed
+2025-07-12 12:28:31,958 - __main__ - INFO - User query received: give the each machine production in the month of march using line chart
+2025-07-12 12:28:31,961 - __main__ - INFO - Processing user query: give the each machine production in the month of march using line chart
+2025-07-12 12:28:31,961 - __main__ - INFO - Analyzing query for visualization: give the each machine production in the month of march using line chart
+2025-07-12 12:28:31,961 - __main__ - INFO - Visualization needed: True, Chart type: line, Multi-machine: True
+2025-07-12 12:28:32,575 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-07-12 12:28:32,576 - groq._base_client - INFO - Retrying request to /openai/v1/chat/completions in 19.000000 seconds
+2025-07-12 12:28:52,694 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-12 12:28:52,698 - __main__ - INFO - Generated SQL query: SELECT 
+    DATE_FORMAT(actual_start_time, '%Y-%m') AS production_month,
+    device_name AS machine_name,
+    SUM(production_output) AS monthly_production
+FROM 
+    hourly_production 
+WHERE 
+    YEAR(actual_start_time) = 2025 
+    AND MONTH(actual_start_time) = 3 
+    AND production_output IS NOT NULL
+GROUP BY 
+    DATE_FORMAT(actual_start_time, '%Y-%m'), device_name
+ORDER BY 
+    production_month, machine_name;
+2025-07-12 12:28:52,706 - __main__ - ERROR - SQL execution error: (mysql.connector.errors.ProgrammingError) 1146 (42S02): Table 'analyzee_machines.hourly_production' doesn't exist
+[SQL: SELECT 
+    DATE_FORMAT(actual_start_time, '%Y-%m') AS production_month,
+    device_name AS machine_name,
+    SUM(production_output) AS monthly_production
+FROM 
+    hourly_production 
+WHERE 
+    YEAR(actual_start_time) = 2025 
+    AND MONTH(actual_start_time) = 3 
+    AND production_output IS NOT NULL
+GROUP BY 
+    DATE_FORMAT(actual_start_time, '%Y-%m'), device_name
+ORDER BY 
+    production_month, machine_name;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+
+**Generated SQL Query:**
+```sql
+SELECT 
+    DATE_FORMAT(actual_start_time, '%Y-%m') AS production_month,
+    device_name AS machine_name,
+    SUM(production_output) AS monthly_production
+FROM 
+    hourly_production 
+WHERE 
+    YEAR(actual_start_time) = 2025 
+    AND MONTH(actual_start_time) = 3 
+    AND production_output IS NOT NULL
+GROUP BY 
+    DATE_FORMAT(actual_start_time, '%Y-%m'), device_name
+ORDER BY 
+    production_month, machine_name;
+```
+
+**Possible issues:**
+1. Column names might be incorrect
+2. Table structure might be different
+3. Date format issues
+4. Data type mismatches
+2025-07-14 09:40:14,516 - __main__ - INFO - Attempting to connect to database: localhost:3306/Analyzee_machines
+2025-07-14 09:40:14,873 - __main__ - INFO - Database connection successful
+2025-07-14 09:40:14,874 - __main__ - INFO - Database connected successfully via UI
+2025-07-14 09:41:32,917 - __main__ - INFO - User query received: give me pulse per minute in from 2025-06-01 00:00 to 2025-06-01 06:01
+2025-07-14 09:41:32,922 - __main__ - INFO - Processing user query: give me pulse per minute in from 2025-06-01 00:00 to 2025-06-01 06:01
+2025-07-14 09:41:32,922 - __main__ - INFO - Analyzing query for visualization: give me pulse per minute in from 2025-06-01 00:00 to 2025-06-01 06:01
+2025-07-14 09:41:32,922 - __main__ - INFO - Visualization needed: True, Chart type: pulse_line, Multi-machine: False
+2025-07-14 09:41:33,697 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2025-07-14 09:41:33,699 - __main__ - ERROR - An error occurred while processing your request: Error code: 400 - {'error': {'message': 'Organization has been restricted. Please reach out to support if you believe this was in error.', 'type': 'invalid_request_error', 'code': 'organization_restricted'}}
+2025-07-14 09:41:33,702 - __main__ - INFO - Conversation turn completed
+2025-07-14 09:41:47,753 - __main__ - INFO - Attempting to connect to database: localhost:3306/Analyzee_machines
+2025-07-14 09:41:47,841 - __main__ - INFO - Database connection successful
+2025-07-14 09:41:47,841 - __main__ - INFO - Database connected successfully via UI
+2025-07-14 09:41:51,275 - __main__ - INFO - User query received: give me pulse per minute in from 2025-06-01 00:00 to 2025-06-01 06:01
+2025-07-14 09:41:51,276 - __main__ - INFO - Processing user query: give me pulse per minute in from 2025-06-01 00:00 to 2025-06-01 06:01
+2025-07-14 09:41:51,276 - __main__ - INFO - Analyzing query for visualization: give me pulse per minute in from 2025-06-01 00:00 to 2025-06-01 06:01
+2025-07-14 09:41:51,276 - __main__ - INFO - Visualization needed: True, Chart type: pulse_line, Multi-machine: False
+2025-07-14 09:41:51,638 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2025-07-14 09:41:51,639 - __main__ - ERROR - An error occurred while processing your request: Error code: 400 - {'error': {'message': 'Organization has been restricted. Please reach out to support if you believe this was in error.', 'type': 'invalid_request_error', 'code': 'organization_restricted'}}
+2025-07-14 09:41:51,641 - __main__ - INFO - Conversation turn completed
+2025-07-14 09:41:59,284 - __main__ - INFO - User query received: hey
+2025-07-14 09:41:59,286 - __main__ - INFO - Conversation turn completed
+2025-07-14 09:42:09,195 - __main__ - INFO - User query received: give me the highest consumption
+2025-07-14 09:42:09,197 - __main__ - INFO - Processing user query: give me the highest consumption
+2025-07-14 09:42:09,197 - __main__ - INFO - Analyzing query for visualization: give me the highest consumption
+2025-07-14 09:42:09,198 - __main__ - INFO - Visualization needed: False, Chart type: bar, Multi-machine: False
+2025-07-14 09:42:09,710 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2025-07-14 09:42:09,712 - __main__ - ERROR - An error occurred while processing your request: Error code: 400 - {'error': {'message': 'Organization has been restricted. Please reach out to support if you believe this was in error.', 'type': 'invalid_request_error', 'code': 'organization_restricted'}}
+2025-07-14 09:42:09,714 - __main__ - INFO - Conversation turn completed
+2025-07-14 09:42:49,930 - __main__ - INFO - Attempting to connect to database: localhost:3306/Analyzee_machines
+2025-07-14 09:42:50,035 - __main__ - INFO - Database connection successful
+2025-07-14 09:42:50,035 - __main__ - INFO - Database connected successfully via UI
+2025-07-14 09:42:57,794 - __main__ - INFO - User query received: hi
+2025-07-14 09:42:57,796 - __main__ - INFO - Conversation turn completed
+2025-07-14 09:43:10,501 - __main__ - INFO - User query received: give me the highest consumption
+2025-07-14 09:43:10,503 - __main__ - INFO - Processing user query: give me the highest consumption
+2025-07-14 09:43:10,503 - __main__ - INFO - Analyzing query for visualization: give me the highest consumption
+2025-07-14 09:43:10,503 - __main__ - INFO - Visualization needed: False, Chart type: bar, Multi-machine: False
+2025-07-14 09:43:11,020 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2025-07-14 09:43:11,023 - __main__ - ERROR - An error occurred while processing your request: Error code: 400 - {'error': {'message': 'Organization has been restricted. Please reach out to support if you believe this was in error.', 'type': 'invalid_request_error', 'code': 'organization_restricted'}}
+2025-07-14 09:43:11,024 - __main__ - INFO - Conversation turn completed
+2025-07-14 09:44:23,469 - __main__ - INFO - Attempting to connect to database: localhost:3306/Analyzee_machines
+2025-07-14 09:44:23,588 - __main__ - INFO - Database connection successful
+2025-07-14 09:44:23,589 - __main__ - INFO - Database connected successfully via UI
+2025-07-14 09:44:26,138 - __main__ - INFO - User query received: give me the highest consumption
+2025-07-14 09:44:26,140 - __main__ - INFO - Processing user query: give me the highest consumption
+2025-07-14 09:44:26,140 - __main__ - INFO - Analyzing query for visualization: give me the highest consumption
+2025-07-14 09:44:26,140 - __main__ - INFO - Visualization needed: False, Chart type: bar, Multi-machine: False
+2025-07-14 09:44:26,734 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2025-07-14 09:44:26,735 - __main__ - ERROR - An error occurred while processing your request: Error code: 400 - {'error': {'message': 'Organization has been restricted. Please reach out to support if you believe this was in error.', 'type': 'invalid_request_error', 'code': 'organization_restricted'}}
+2025-07-14 09:44:26,737 - __main__ - INFO - Conversation turn completed
+2025-07-14 10:10:31,495 - __main__ - INFO - Attempting to connect to database: localhost:3306/Analyzee_machines
+2025-07-14 10:10:33,128 - __main__ - INFO - Database connection successful
+2025-07-14 10:10:33,129 - __main__ - INFO - Database connected successfully via UI
+2025-07-14 10:10:35,799 - __main__ - INFO - User query received: hey
+2025-07-14 10:10:35,800 - __main__ - INFO - Conversation turn completed
+2025-07-14 10:10:51,802 - __main__ - INFO - User query received: give me the highest production in april
+2025-07-14 10:10:51,804 - __main__ - INFO - Processing user query: give me the highest production in april
+2025-07-14 10:10:51,804 - __main__ - INFO - Analyzing query for visualization: give me the highest production in april
+2025-07-14 10:10:51,804 - __main__ - INFO - Visualization needed: False, Chart type: bar, Multi-machine: False
+2025-07-14 10:10:52,400 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2025-07-14 10:10:52,401 - __main__ - ERROR - An error occurred while processing your request: Error code: 400 - {'error': {'message': 'Organization has been restricted. Please reach out to support if you believe this was in error.', 'type': 'invalid_request_error', 'code': 'organization_restricted'}}
+2025-07-14 10:10:52,402 - __main__ - INFO - Conversation turn completed
